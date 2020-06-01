@@ -203,6 +203,7 @@ groups:
           For example,
           chmod 644 /etc/kubernetes/admin.conf
         scored: true
+        type: skip
 
       - id: 1.1.14
         text: "Ensure that the admin.conf file ownership is set to root:root (Scored) "
@@ -219,6 +220,7 @@ groups:
           For example,
           chown root:root /etc/kubernetes/admin.conf
         scored: true
+        type: skip
 
       - id: 1.1.15
         text: "Ensure that the scheduler.conf file permissions are set to 644 or more restrictive (Scored)"
@@ -235,6 +237,7 @@ groups:
           For example,
           chmod 644 /etc/kubernetes/scheduler.conf
         scored: true
+        type: skip
 
       - id: 1.1.16
         text: "Ensure that the scheduler.conf file ownership is set to root:root (Scored)"
@@ -251,6 +254,7 @@ groups:
           For example,
           chown root:root /etc/kubernetes/scheduler.conf
         scored: true
+        type: skip
 
       - id: 1.1.17
         text: "Ensure that the controller-manager.conf file permissions are set to 644 or more restrictive (Scored)"
@@ -267,6 +271,7 @@ groups:
           For example,
           chmod 644 /etc/kubernetes/controller-manager.conf
         scored: true
+        type: skip
 
       - id: 1.1.18
         text: "Ensure that the controller-manager.conf file ownership is set to root:root (Scored)"
@@ -283,6 +288,7 @@ groups:
           For example,
           chown root:root /etc/kubernetes/controller-manager.conf
         scored: true
+        type: skip
 
       - id: 1.1.19
         text: "Ensure that the Kubernetes PKI directory and file ownership is set to root:root (Scored)"

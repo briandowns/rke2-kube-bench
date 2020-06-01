@@ -50,7 +50,7 @@ case $1 in
                           --config-dir=./
     ;;
     *)
-        echo "error: argument required [all|node|master|policies|etcd]"
+        echo "error: argument required [all|controlplane|node|master|policies|etcd]"
         exit 1
     ;;
 esac
