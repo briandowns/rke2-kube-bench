@@ -1,0 +1,129 @@
+---
+## Controls Files.
+# These are YAML files that hold all the details for running checks.
+#
+## Uncomment to use different control file paths.
+# masterControls: ./cfg/master.yaml
+# nodeControls: ./cfg/node.yaml
+
+master:
+  components:
+    - apiserver
+    - scheduler
+    - controllermanager
+    - etcd
+    - flanneld
+
+  apiserver:
+    bins:
+      - "kube-apiserver"
+      - "hyperkube apiserver"
+      - "hyperkube kube-apiserver"
+      - "apiserver"
+    confs: 
+      - /var/lib/rancher/rke2/agent/pod-manifests/kube-apiserver.yaml
+    defaultconf: /var/lib/rancher/rke2/agent/pod-manifests/kube-apiserver.yaml
+
+  scheduler:
+    bins:
+      - "kube-scheduler"
+      - "hyperkube scheduler"
+      - "hyperkube kube-scheduler"
+      - "scheduler"
+    confs:
+      - /var/lib/rancher/rke2/agent/pod-manifests/kube-scheduler.yaml
+    defaultconf: /var/lib/rancher/rke2/agent/pod-manifests/kube-scheduler.yaml
+
+  controllermanager:
+    bins:
+      - "kube-controller-manager"
+      - "kube-controller"
+      - "hyperkube controller-manager"
+      - "hyperkube kube-controller-manager"
+      - "controller-manager"
+    confs:
+      - /var/lib/rancher/rke2/agent/pod-manifests/kube-controller-manager.yaml
+    defaultconf: /var/lib/rancher/rke2/agent/pod-manifests/kube-controller-manager.yaml
+
+  etcd:
+    optional: true
+    bins:
+      - "etcd"
+    confs:
+      - /var/lib/rancher/rke2/server/db/etcd/config
+    defaultconf: /var/lib/rancher/rke2/server/db/etcd/config
+
+  flanneld:
+    optional: true
+    bins:
+      - flanneld
+    defaultconf: /etc/sysconfig/flanneld
+
+node:
+  components:
+    - kubelet
+#    - proxy
+
+  kubelet:
+    cafile:
+      - "/var/lib/rancher/rke2/agent/server.crt"
+    bins:
+      - "hyperkube kubelet"
+      - "kubelet"
+    kubeconfig:
+      - "/etc/rancher/rke2/rke2.yaml"
+    confs:
+      - "/etc/rancher/rke2/rke2.yaml"
+    defaultconf: "/etc/rancher/rke2/rke2.yaml"
+    defaultkubeconfig: "/etc/rancher/rke2/rke2.yaml"
+    defaultcafile: "/var/lib/rancher/rke2/agent/server.crt"
+
+#  proxy:
+#    optional: true
+#    bins:
+#      - "kube-proxy"
+#      - "hyperkube proxy"
+#      - "hyperkube kube-proxy"
+#      - "proxy"
+#    confs:
+#      - "/var/lib/rancher/rke2/agent/kubeproxy.kubeconfig"
+#    kubeconfig:
+#      - "/etc/rancher/rke2/rke2.yaml"
+#    svc:
+#      - "/lib/systemd/system/kube-proxy.service"
+#      - "/etc/systemd/system/snap.microk8s.daemon-proxy.service"
+#    defaultconf: "/var/lib/rancher/rke2/agent/kubeproxy.kubeconfig"
+#    defaultkubeconfig: "/etc/rancher/rke2/rke2.yaml"
+
+etcd:
+  components:
+    - etcd
+
+  etcd:
+    bins:
+      - "etcd"
+    confs:
+      - /var/lib/rancher/rke2/agent/pod-manifests/etcd.yaml
+    defaultconf: /var/lib/rancher/rke2/agent/pod-manifests/etcd.yaml
+
+controlplane:
+  components: []
+
+policies:
+  components: []
+
+managedservices:
+  components: []
+
+version_mapping:
+  "1.11": "cis-1.3"
+  "1.12": "cis-1.3"
+  "1.13": "cis-1.4"
+  "1.14": "cis-1.4"
+  "1.15": "cis-1.5"
+  "1.16": "cis-1.5"
+  "1.17": "cis-1.5"
+  "gke-1.0": "gke-1.0"
+  "ocp-3.10": "rh-0.7"
+  "ocp-3.11": "rh-0.7"
+
