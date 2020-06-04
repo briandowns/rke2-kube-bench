@@ -20,33 +20,33 @@ case $1 in
                           --config-dir=./
     ;;
     "master")
-        ${KUBE_BENCH} run --benchmark cis-1.5 --unscored=false             \
-                          --targets master                                 \
-                          --config=config.yaml                             \
+        ${KUBE_BENCH} run --benchmark cis-1.5 --unscored=false \
+                          --targets master                     \
+                          --config=config.yaml                 \
                           --config-dir=./
     ;;
     "node")
-        ${KUBE_BENCH} run --benchmark cis-1.5 --unscored=false             \
-                          --targets node                                   \
-                          --config=config.yaml                             \
+        ${KUBE_BENCH} run --benchmark cis-1.5 --unscored=false \
+                          --targets node                       \
+                          --config=config.yaml                 \
                           --config-dir=./
     ;;
     "controlplane")
-        ${KUBE_BENCH} run --benchmark cis-1.5 --unscored=false             \
-                          --targets controlplane                           \
-                          --config=config.yaml                             \
+        ${KUBE_BENCH} run --benchmark cis-1.5 --unscored=false \
+                          --targets controlplane               \
+                          --config=config.yaml                 \
                           --config-dir=./
     ;;
     "etcd")
-        ${KUBE_BENCH} run --benchmark cis-1.5 --unscored=false             \
-                          --targets etcd                                   \
-                          --config=config.yaml                             \
+        ${KUBE_BENCH} run --benchmark cis-1.5 --unscored=false \
+                          --targets etcd                       \
+                          --config=config.yaml                 \
                           --config-dir=./
     ;;
     "policies")
-        ${KUBE_BENCH} run --benchmark cis-1.5 --unscored=false             \
-                          --targets policies                               \
-                          --config=config.yaml                             \
+        ${KUBE_BENCH} run --benchmark cis-1.5 --unscored=false \
+                          --targets policies                   \
+                          --config=config.yaml                 \
                           --config-dir=./
     ;;
     *)
